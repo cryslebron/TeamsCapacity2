@@ -16,10 +16,10 @@
   },
   "production": {
     "db": {
-      "username": "capplaner",
-      "password": "Ald3aFlow",
+      "username": "admin",
+      "password": "adminpassword",
       "database": "capacityplanner",
-      "host": "127.0.0.1",
+      "host": "database-instance.cn1y0mmfooha.us-east-2.rds.amazonaws.com",
       "dialect": "mysql"
     },    
     "mailer": {
