@@ -1,6 +1,6 @@
 const express = require('express')
 const routes = require('./routes/index')
-const sequelize = require('./util/database')
+// const sequelize = require('./util/database')
 
 const app = express()
  
@@ -22,15 +22,17 @@ app.use((err, req, res, next) => {
     res.send('500 - Server Error')
 })
 
-sequelize
-    .sync()
-    .then(result => {
-        console.log(result);
-        app.listen(port, () => console.log(
-            `Express started in ${app.get('env')} mode at http://localhost:${port}; ` +
-            `press Ctrl-C to terminate`
-        ))
-    })
-    .catch(err => {
-        console.log(err);        
-    })
+app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+
+// sequelize
+//     .sync()
+//     .then(result => {
+//         console.log(result);
+//         app.listen(port, () => console.log(
+//             `Express started in ${app.get('env')} mode at http://localhost:${port}; ` +
+//             `press Ctrl-C to terminate`
+//         ))
+//     })
+//     .catch(err => {
+//         console.log(err);        
+//     })
