@@ -1,8 +1,8 @@
 {
   "development": {
     "db": {
-      "username": "root",
-      "password": "Password1.",
+      "username": "capplaner",
+      "password": "Ald3aFlow",
       "database": "capacityplanner",
       "host": "127.0.0.1",
       "dialect": "mysql"

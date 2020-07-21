@@ -1,9 +1,11 @@
 const express = require('express')
+const teamsController = require('./../controllers/team')
 
 const router = express.Router()
 
-router.get('/', (req, res) => { res.json([{name: 'team 1'}]) })
-router.post('/', (req, res) => { res.sendStatus(200) })
-router.put('/:id', (req, res) => { res.sendStatus(200) })
+router.get('/', teamsController.get)
+router.get('/:id', teamsController.getOne)
+router.post('/', teamsController.post)
+router.delete('/:name', teamsController.delete)
 
 module.exports = router
