@@ -14,10 +14,9 @@ export default  function teamReducer(state = [], action) {
     switch (action.type) {
         case "CREATE_TEAM":
             const newTeam = createTeam(action.team);
-            return [...state, action.team];
+            return [...state, { ...action.team }];
         case "DELETE_TEAM":
             deleteByName(action.teamName);
-            //this is still safe - optimistic update
             const teamName = action.teamName;
             return state.filter(team => team.teamName !== teamName);
         case "GET_TEAMS":

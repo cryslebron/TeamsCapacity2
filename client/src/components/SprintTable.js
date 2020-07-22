@@ -7,7 +7,7 @@ const SprintHeader = () => {
     return (
         <thead>
             <tr>
-                <th>Sprint Number</th>
+                <th>Sprint Name</th>
                 <th>Start date</th>
                 <th>End Date</th>
                 <th>Sprint Length</th>
@@ -17,19 +17,19 @@ const SprintHeader = () => {
     );
 }
 
-function deleteSprint(actions, sprintNumber) {
-    actions.deleteSprint(sprintNumber);
+function deleteSprint(actions, sprintName) {
+    actions.deleteSprint(sprintName);
 }
 
 const SprintBody = props => {
     const rows = props.characterData.map((row, index) => {
         return (
             <tr key={index}>
-                <td>{row.SprintNumber}</td>
-                <td>{row.SprintStart}</td>
-                <td>{row.SprintEnd}</td>
-                <td>{row.SprintLength}</td>
-                <td><button onClick={() => deleteSprint(props.actions, row.sprintNumber)}>Delete</button></td>
+                <td>{row.sprintName}</td>
+                <td>{row.startDate}</td>
+                <td>{row.endDate}</td>
+                <td>{row.sprintLength}</td>
+                <td><button onClick={() => deleteSprint(props.actions, row.sprintName)}>Delete</button></td>
             </tr>
         );
     });

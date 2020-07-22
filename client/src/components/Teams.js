@@ -32,7 +32,7 @@ const Teams = (props) => {
             <div className="container">
                 <h2>Sprint</h2>
                 {sprints.map(sprint => (
-                    <div key={sprint.SprintNumber}>{sprint.SprintNumber}</div>
+                    <div key={sprint.SprintName}>{sprint.SprintName}</div>
                 ))}
             </div>
             <br />

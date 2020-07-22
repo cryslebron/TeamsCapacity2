@@ -10,10 +10,13 @@ export async function getOne(id) {
 
 export async function post(payload) {
     return await http.post(`sprint`, {
-        sprintNumber: payload.sprint
+        sprintName: payload.sprintName,
+        startDate: payload.startDate,
+        endDate: payload.endDate,
+        teamId: payload.teamId
     })
 }
 
-export async function deleteByName(sprint) {
-    return await http.delete(`sprint/${sprint}`);
+export async function deleteByName(sprintName) {
+    return await http.delete(`sprint/${sprintName}`);
 }

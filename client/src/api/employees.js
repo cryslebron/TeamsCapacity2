@@ -13,7 +13,6 @@ export async function post(payload) {
         name: payload.name,
         title: payload.title,
         time: payload.time,
-        pto: payload.pto,
         teamId: payload.teamId,
     })
 }

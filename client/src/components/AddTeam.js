@@ -39,12 +39,8 @@ class Team extends Component {
         this.setState({ team });
     }
 
-
-
     render() {
         const { team } = this.state;
-
-
 
         return (
 
@@ -67,14 +63,10 @@ class Team extends Component {
     }
 }
 
-
 function mapStateToProps(state) {
     return {
         team: state.team
     }
 }
-
-
-
 
 export default connect(mapStateToProps)(Team);

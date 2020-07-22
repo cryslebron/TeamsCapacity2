@@ -2,8 +2,8 @@ export function createSprint(sprint) {
     return { type: "CREATE_SPRINT", sprint };
 }
 
-export function deleteSprint(sprintNumber) {
-    return { type: "DELETE_SPRINT", sprintNumber };
+export function deleteSprint(sprintName) {
+    return { type: "DELETE_SPRINT", sprintName };
 }
 
 export function getSprints() {

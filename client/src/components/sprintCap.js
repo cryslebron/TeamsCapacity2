@@ -10,11 +10,12 @@ class Sprint extends Component {
 
         this.initialState = {
             sprint: {
-                SprintNumber: '',
-                SprintLength: '',
-                SprintStart: '',
-                SprintEnd: '',
-
+                id: 1,
+                sprintName: '',
+                sprintLength: '',
+                startDate: '',
+                endDate: '',
+                teamId: 1
             }
         };
 
@@ -37,7 +38,7 @@ class Sprint extends Component {
     }
     // //is to clear the form once submitted 
     resetForm = () => {
-        const sprint = { ...this.state.sprint, SprintNumber: "", SprintLength: '', SprintStart: "", SprintEnd: "" }
+        const sprint = { ...this.state.sprint, sprintName: "", sprintLength: '', startDate: "", endDate: "" }
 
         this.setState({ sprint });
     }
@@ -47,33 +48,33 @@ class Sprint extends Component {
         return (
             <div className="container">
                 <form onSubmit={this.onFormSubmit} >
-                    <label htmlFor="SprintNumber">Sprint Name</label>
+                    <label htmlFor="sprintName">Sprint Name</label>
                     <input
                         type="text"
-                        name="SprintNumber"
-                        id="SprintNumber"
-                        value={sprint.SprintNumber}
+                        name="sprintName"
+                        id="sprintName"
+                        value={sprint.sprintName}
                         onChange={this.handleChange} />
-                    <label htmlFor="SprintNumber">Sprint Duration</label>
+                    <label htmlFor="sprintName">Sprint Duration</label>
                     <input
                         type="number"
-                        name="SprintLength"
-                        id="SprintLength"
-                        value={sprint.SprintLength}
+                        name="sprintLength"
+                        id="sprintLength"
+                        value={sprint.sprintLength}
                         onChange={this.handleChange} />
-                    <label htmlFor="SprintStart">Sprint Start Date</label>
+                    <label htmlFor="startDate">Sprint Start Date</label>
                     <input
                         type="date"
-                        name="SprintStart"
-                        id="SprintStart"
-                        value={sprint.SprintStart}
+                        name="startDate"
+                        id="startDate"
+                        value={sprint.startDate}
                         onChange={this.handleChange} />
-                    <label htmlFor="SprintEnd">Sprint End Date</label>
+                    <label htmlFor="endDate">Sprint End Date</label>
                     <input
                         type="date"
-                        name="SprintEnd"
-                        id="SprintEnd"
-                        value={sprint.SprintEnd}
+                        name="endDate"
+                        id="endDate"
+                        value={sprint.endDate}
                         onChange={this.handleChange} />
                     <button type="submit">
                         Submit

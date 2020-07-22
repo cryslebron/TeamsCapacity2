@@ -42,11 +42,8 @@ class employee extends Component {
         this.setState({ employee });
     }
 
-
-
     render() {
         const { employee } = this.state;
-
        
            return (
            

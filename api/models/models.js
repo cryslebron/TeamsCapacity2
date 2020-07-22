@@ -17,9 +17,11 @@ const Employee = sequelize.define('employee', {
   },
   time: {
       type: Sequelize.INTEGER
+  },
+  teamId: {
+    type: Sequelize.INTEGER
   }
 })
-
 
 const Team = sequelize.define('team', {
   id: {
@@ -50,6 +52,10 @@ const User = sequelize.define('user', {
     password: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    email: {
+        type: Sequelize.STRING,
+        allowNull: false
     }
 })
 
@@ -60,7 +66,7 @@ const Sprint = sequelize.define('sprint', {
       allowNull: false,
       primaryKey: true
   },
-  sprintNumber: {
+  sprintName: {
       type: Sequelize.INTEGER,
       allowNull: false
   },
@@ -71,13 +77,19 @@ const Sprint = sequelize.define('sprint', {
   endDate: {
       type: Sequelize.DATE,
       allowNull: false
+  },
+  teamId: {
+    type: Sequelize.INTEGER
   }
 })
 
 
 //associations
-Team.hasMany(Employee)
-Employee.belongsTo(Team)
+Team.hasMany(Employee);
+Employee.belongsTo(Team);
+
+Team.hasMany(Sprint);
+Sprint.belongsTo(Team);
 
 Employee.belongsToMany(Sprint, { through: 'employee_sprint' });
 Sprint.belongsToMany(Employee, { through: 'employee_sprint' });

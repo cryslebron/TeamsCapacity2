@@ -53,7 +53,7 @@ exports.delete = async (req, res) => {
     try {
         await Employee.destroy({
             where: {
-                id: req.params.id
+                name: req.params.name
             }
         })
         res.sendStatus(200)

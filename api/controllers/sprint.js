@@ -13,7 +13,7 @@ exports.getOne = async (req, res) => {
     try {
         const sprint = await Sprint.findOne({
             where: {
-                sprintNumber: req.params.sprintNumber
+                sprintName: req.params.sprintName
             },
             include: Employee
         });
@@ -26,9 +26,10 @@ exports.getOne = async (req, res) => {
 exports.post = async (req, res) => {
     try {
         const sprint = await Sprint.create({
-            sprintNumber: req.body.sprintNumber,
+            sprintName: req.body.sprintName,
             startDate: req.body.startDate,
-            endDate: req.body.endDate
+            endDate: req.body.endDate,
+            teamId: req.body.teamId
         })
         res.json(sprint)
     } catch (error) {
@@ -40,7 +41,7 @@ exports.addEmployee = async (req, res) => {
     try {
         const sprint = await Sprint.findOne({
             where: {
-                sprintNumber: req.body.sprintNumber
+                sprintName: req.body.sprintName
             }
         });
         const employee = await Employee.findOne({
@@ -61,7 +62,7 @@ exports.delete = async (req, res) => {
     try {
         await Sprint.destroy({
             where: {
-                sprintNumber: req.params.sprintNumber
+                sprintName: req.params.sprintName
             }
         })
         res.sendStatus(200)

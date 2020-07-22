@@ -7,6 +7,6 @@ router.get('/', employeeController.get)
 router.get('/:id', employeeController.getOne)
 router.get('/by-team/:id', employeeController.get)
 router.post('/', employeeController.post)
-router.delete('/:id', employeeController.delete)
+router.delete('/:name', employeeController.delete)
 
 module.exports = router

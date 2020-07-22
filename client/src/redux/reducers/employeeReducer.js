@@ -1,7 +1,6 @@
 import { getAll, post, deleteByName } from "../../api/employees";
 
 const createEmployee = (employee) => {
-    debugger;
     const response = post(employee);
     return response.data;
 };
@@ -20,6 +19,9 @@ export default function employeeReducer(state = [], action) {
             deleteByName(action.name);
             const name = action.name;
             return state.filter(employee => employee.name !== name);
+        case "GET_EMPLOYEE":
+            //const allEmployees = await getEmployees();
+            return state;
         default:
             return state;
     }
