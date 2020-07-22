@@ -13,23 +13,22 @@ import "react-datepicker/dist/react-datepicker.css";
 class Home extends Component {
     constructor(props) {
         super(props)
-        this.state = { isOpen: false }
-    }
-    toggleForm = () => {
-        this.setState(
-            { isOpen: !this.state.isOpen }
-        )
-    }
-
-    toggle = () => {
-        this.setState(
-            { isOpen: !this.state.isOpen }
-        )
-
+        this.state = { teamIsOpen: false, sprintIsOpen: false, employeeIsOpen: false }
     }
     toggleTeams = () => {
         this.setState(
-            { isOpen: !this.state.isOpen }
+            { teamIsOpen: !this.state.teamIsOpen }
+        )
+    }
+    toggleSprints = () => {
+        this.setState(
+            { sprintIsOpen: !this.state.sprintIsOpen }
+        )
+    }
+
+    toggleEmployees = () => {
+        this.setState(
+            { employeeIsOpen: !this.state.employeeIsOpen }
         )
     }
 
@@ -41,20 +40,19 @@ class Home extends Component {
                     <div className="container">
                         <TeamTable />
                         <button onClick={this.toggleTeams}> Add new Team</button>
-                        {this.state.isOpen && <AddTeam />}
+                        {this.state.teamIsOpen && <AddTeam />}
                     </div>
                     <br/>
                     <div className="container">
                         <SprintTable />
-                        <button onClick={this.toggle}> Add new Sprint</button>
-                        {this.state.isOpen && <SprintDate />}
+                        <button onClick={this.toggleSprints}> Add new Sprint</button>
+                        {this.state.sprintIsOpen && <SprintDate />}
                     </div>
                     <br/>
                     <div className="container">
                         <Table />
-                        <button onClick={this.toggleForm}> Add new Team Member</button>
-                        {this.state.isOpen && <NewEmployee />}
-
+                        <button onClick={this.toggleEmployees}> Add new Team Member</button>
+                        {this.state.employeeIsOpen && <NewEmployee />}
                     </div>
                 </div>
             </div>

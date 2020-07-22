@@ -1,4 +1,4 @@
-import { getAll, post, deleteByName } from "../../api/employees";
+import { getAllEmployees, post, deleteByName } from "../../api/employees";
 
 const createEmployee = (employee) => {
     const response = post(employee);
@@ -6,7 +6,7 @@ const createEmployee = (employee) => {
 };
 
 const getEmployees = async () => {
-    const response = await getAll();
+    const response = await getAllEmployees();
     return response.data;
 };
 

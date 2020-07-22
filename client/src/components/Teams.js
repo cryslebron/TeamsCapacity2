@@ -1,58 +1,107 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getAll } from "./../api/teams";
+import { getAllTeams } from "./../api/teams";
+import { getAllEmployees } from "./../api/employees";
+import { getAllSprints } from "./../api/sprints";
 import { useState, useEffect } from 'react';
-import config from '../config';
-import * as teamActions from '../redux/actions/teamActions';
 
 const Teams = (props) => {
     const { sprints, employees } = props;
-    const [data, setData] = useState({ teams: [] });
+    const [teamData, setTeamData] = useState({ teams: [] });
+    const [employeeData, setEmployeeData] = useState({ employees: [] });
+    const [sprintData, setSprintData] = useState({ sprints: [] });
+    const [selectedTeam, setSelectedTeam] = useState(0);
 
     useEffect(() => {
-        const fetchData = async () => {
-          const result = await getAll();
-         
-          setData({teams: result.data});
+        const fetchTeamData = async () => {
+            const result = await getAllTeams();
+            setTeamData({
+                teams: [{ id: 0, teamName: '(Select Team)' }].concat(result.data)
+            });
         };
-     
-        fetchData();
-      }, []);
+        const fetchEmployeeData = async () => {
+            const result = await getAllEmployees();
+            setEmployeeData({
+                employees: [{ id: 0, name: '(Select Team member)' }].concat(result.data)
+            });
+        };
+        const fetchSprintData = async () => {
+            const result = await getAllSprints();
+            setSprintData({
+                sprints: [{ id: 0, teamName: '(Select Sprint)' }].concat(result.data)
+            });
+        };
+
+        fetchTeamData();
+        fetchEmployeeData();
+        fetchSprintData();
+    }, []);
 
     // props.dispatch(teamActions.getTeams());
     return (
         <div>
             <div className="container">
-                <h1>Teams</h1>
-                {data.teams.map(team => (
-                    <div key={team.teamName}>{team.teamName}</div>
-                ))}
+
+                <label htmlFor="teamId">Team</label>
+                <select
+                    name="teamId"
+                    id="teamId"
+                    value={selectedTeam}
+                    onChange={(e) => {
+                        setSelectedTeam(e.target.value);
+                    }
+                    }>
+                    {teamData.teams.map((team) => <option key={team.id} value={team.id}>{team.teamName}</option>)}
+                </select>
             </div>
             <br />
             <div className="container">
-                <h2>Sprint</h2>
-                {sprints.map(sprint => (
-                    <div key={sprint.SprintName}>{sprint.SprintName}</div>
+                <h2>Sprints</h2>
+                {sprintData.sprints.filter(sprint => sprint.teamId == selectedTeam).map(sprints => (
+                    <div key={sprints.sprintName}>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sprint Name</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{sprints.sprintName}</td>
+                                    <td> {sprints.startDate}</td>
+                                    <td> {sprints.endDate}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 ))}
             </div>
             <br />
 
             <div className="container">
                 <h2>Team Members</h2>
-               
-                    {employees.map(employees => (
-                        <div key={employees.name}>
-                             <table>
-                            <tr>
-                                <td>{employees.name}</td>
-                                <td> {employees.title}</td>
-                                <td> {employees.time}</td>
-                                <td> {employees.pto}</td>
-                            </tr>
-                            </table>
-                        </div>
-                    ))}
-               
+                {employeeData.employees.filter(employee => employee.teamId == selectedTeam).map(employees => (
+                    <div key={employees.name}>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Title</th>
+                                    <th>Capacity per day</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{employees.name}</td>
+                                    <td> {employees.title}</td>
+                                    <td> {employees.time}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                ))}
             </div>
 
         </div>

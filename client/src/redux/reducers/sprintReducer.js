@@ -1,4 +1,4 @@
-import { getAll, post, deleteByName } from "./../../api/sprints";
+import { getAllSprints, post, deleteByName } from "./../../api/sprints";
 
 const createSprint = (sprint) => {
     const response = post(sprint);
@@ -6,7 +6,7 @@ const createSprint = (sprint) => {
 };
 
 const getSprints = async () => {
-    const response = await getAll();
+    const response = await getAllSprints();
     return response.data;
 };
 

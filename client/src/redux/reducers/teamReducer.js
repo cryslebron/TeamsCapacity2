@@ -1,4 +1,4 @@
-import { getAll, post, deleteByName } from "./../../api/teams";
+import { getAllTeams, post, deleteByName } from "./../../api/teams";
 
 const createTeam = (team) => {
     const response = post(team);
@@ -6,7 +6,7 @@ const createTeam = (team) => {
 };
 
 const getTeams = async () => {
-    const response = await getAll();
+    const response = await getAllTeams();
     return response.data;
 }; 
 
@@ -20,7 +20,7 @@ export default  function teamReducer(state = [], action) {
             const teamName = action.teamName;
             return state.filter(team => team.teamName !== teamName);
         case "GET_TEAMS":
-            //const allTeams = await getTeams();
+            //const allTeams = await getAllTeams();
             return state;
         default:
             return state;

@@ -1,6 +1,6 @@
 import http from './config'
 
-export async function getAll() {
+export async function getAllSprints() {
     return await http.get(`sprint`);
 }
 

@@ -1,6 +1,6 @@
 import http from './config'
 
-export async function getAll() {
+export async function getAllEmployees() {
     return await http.get(`employee`);
 }
 

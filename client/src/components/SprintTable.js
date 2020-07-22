@@ -8,7 +8,7 @@ const SprintHeader = () => {
         <thead>
             <tr>
                 <th>Sprint Name</th>
-                <th>Start date</th>
+                <th>Start Date</th>
                 <th>End Date</th>
                 <th>Sprint Length</th>
                 <th>Remove</th>
