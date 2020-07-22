@@ -8,7 +8,6 @@ exports.get = async (req, res) => {
         res.sendStatus(500)
     }
 }
-
 exports.getOne = async (req, res) => {
     try {
         const employee = await Employee.findOne({

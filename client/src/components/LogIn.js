@@ -58,7 +58,7 @@ class LogIn extends Component {
                 onChange={this.onChange}
               />
               <div className="text-center mt-4">
-                <MDBBtn color="indigo" type="submit">Login</MDBBtn>
+                <button color="indigo" type="submit">Login</button>
                {/* <MDBBtn color="indigo" type="submit" onClick={<SignUp />}>SignUp</MDBBtn>} */}
               </div>
             </form>

@@ -13,7 +13,6 @@ exports.signUp = async (req, res) => {
         res.sendStatus(500)
     }
 }
-
 exports.login = async (req, res) => {
     try {
         const user = await User.findOne({ where: { username: req.body.username } })
