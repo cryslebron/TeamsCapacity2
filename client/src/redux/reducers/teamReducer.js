@@ -1,7 +1,7 @@
-import { getAll, post, deleteOne } from "./../../api/teams";
+import { getAll, post, deleteByName } from "./../../api/teams";
 
-const createTeam = async (team) => {
-    const response = await post(team);
+const createTeam = (team) => {
+    const response = post(team);
     return response.data;
 };
 
@@ -10,18 +10,19 @@ const getTeams = async () => {
     return response.data;
 }; 
 
-export default function teamReducer(state = [], action) {
+export default  function teamReducer(state = [], action) {
     switch (action.type) {
         case "CREATE_TEAM":
             const newTeam = createTeam(action.team);
-            return [...state, newTeam];
+            return [...state, action.team];
         case "DELETE_TEAM":
-            await deleteOne(action.teamName);
+            deleteByName(action.teamName);
             //this is still safe - optimistic update
             const teamName = action.teamName;
             return state.filter(team => team.teamName !== teamName);
         case "GET_TEAMS":
-            return getTeams();
+            //const allTeams = await getTeams();
+            return state;
         default:
             return state;
     }

@@ -8,20 +8,20 @@ const NavBar = () => {
             <nav>
                 <ul>
                     <li>
-                        <Link to="/Home">Home</Link>
+                        <Link to="/LogIn">Login</Link>
                     </li>
                     <li>
-                        <Link to="/Reports">Reports</Link>
+                        <Link to="/Home">Home</Link>
                     </li>
+                    {/* <li>
+                        <Link to="/Reports">Reports</Link>
+                    </li> */}
                     <li>
                         <Link to="/Teams">Team List</Link>
                     </li>
-                    <li>
-                        
-                        <Link to="/LogIn">Login</Link>
-                    </li>
+
                 </ul>
-                </nav>
+            </nav>
 
             {/* <ReactBootStrap.Navbar collapseOnSelect expand="sm" bg="danger" variant="dark">
                 <ReactBootStrap.Navbar.Brand href="/components/Home">Team Capacity</ReactBootStrap.Navbar.Brand>

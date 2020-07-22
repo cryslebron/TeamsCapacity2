@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as userActions from '../redux/actions/userActions';
+import * as employeeActions from '../redux/actions/employeeActions';
 import { bindActionCreators } from 'redux';
 
 const TableHeader = () => {
@@ -19,9 +19,9 @@ const TableHeader = () => {
         </thead>
     );
 }
-// Delete User by name
-function deleteUser(actions, name) {
-    actions.deleteUser(name);
+// Delete employee by name
+function deleteEmployee(actions, name) {
+    actions.deleteEmployee(name);
 }
 
 const TableBody = props => {
@@ -35,7 +35,7 @@ const TableBody = props => {
                 <td>{row.time * 10 - row.pto}</td>
                 <td>{(row.time * 10 - row.pto) * 0.70}</td>
                 <td>{Math.round((row.time * 10 - row.pto) * 0.30 * 100) / 100}</td>
-                <td><button onClick={() => deleteUser(props.actions, row.name)}>Delete</button></td>
+                <td><button onClick={() => deleteEmployee(props.actions, row.name)}>Delete</button></td>
             </tr>
         );
     });
@@ -44,13 +44,13 @@ const TableBody = props => {
 }
 
 const Table = (props) => {
-    const { users } = props;
+    const { employees } = props;
     return (
         <div>
-            <h2>Employees</h2>
+            <h2>Team Members</h2>
             <table>
                 <TableHeader />
-                <TableBody characterData={users} actions={props.actions} />
+                <TableBody characterData={employees} actions={props.actions} />
             </table>
         </div>
     );
@@ -58,13 +58,13 @@ const Table = (props) => {
 
 function mapStateToProps(state) {
     return {
-        users: state.users
+        employees: state.employees
     }
 }
 //Since I have multiple subcomponents, I needed to add the binsActionCreator to call an action inside a subcomponent under Table.js
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(userActions, dispatch)
+        actions: bindActionCreators(employeeActions, dispatch)
     }
 }
 

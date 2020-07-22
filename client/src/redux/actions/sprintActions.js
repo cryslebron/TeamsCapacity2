@@ -5,3 +5,7 @@ export function createSprint(sprint) {
 export function deleteSprint(sprintNumber) {
     return { type: "DELETE_SPRINT", sprintNumber };
 }
+
+export function getSprints() {
+    return { type: "GET_SPRINT"};
+}

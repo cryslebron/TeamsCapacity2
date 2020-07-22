@@ -40,7 +40,7 @@ exports.post = async (req, res) => {
         await Employee.create({
             name: req.body.name,
             title: req.body.title,
-            capacity: req.body.capacity,
+            time: req.body.time,
             teamId: req.body.teamId
         })
         res.sendStatus(200)

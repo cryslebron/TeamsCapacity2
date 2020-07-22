@@ -25,7 +25,7 @@ exports.getOne = async (req, res) => {
 exports.post = async (req, res) => {
     try {
         const team = await Team.create({
-            name: req.body.name
+            teamName: req.body.teamName
         })
         res.json(team)
     } catch (error) {
@@ -37,7 +37,7 @@ exports.delete = async (req, res) => {
     try {
         await Team.destroy({
             where: {
-                name: req.params.name
+                teamName: req.params.teamName
             }
         })
         res.sendStatus(200)

@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as userActions from '../redux/actions/userActions';
+import * as employeeActions from '../redux/actions/employeeActions';
 
-// const ErrorValidationLabel = ({ txtLbl }) => (
-//     <label htmlFor="" style={{ color: "red" }}>
-//         {txtLbl}
-//     </label>
-// );
 
-class user extends Component {
+class employee extends Component {
     constructor(props) {
         super(props);
 
         this.initialState = {
-            user: {
+            employee: {
                 name: '',
                 title: '',
                 time: '',
+                teamid: '',
                 pto: ''
             }
         };
@@ -28,28 +24,28 @@ class user extends Component {
 //update state everytime that there is a change on any imput
     handleChange = event => {
         const { name, value } = event.target;
-        const user = { ...this.state.user, [name]: value }
+        const employee = { ...this.state.employee, [name]: value }
 
-        this.setState({ user });
+        this.setState({ employee });
     }
-//dispatch the Redux createUser action on submit
+//dispatch the Redux createEmployee action on submit
     onFormSubmit = (event) => {
         alert('Employee Added!');
         event.preventDefault();
-        this.props.dispatch(userActions.createUser(this.state.user))
+        this.props.dispatch(employeeActions.createEmployee(this.state.employee))
         this.resetForm();
     }
 //is to clear the form once submitted 
     resetForm = () => {
-        const user = { ...this.state.user, name: "", title: "", time: "", pto: "" }
+        const employee = { ...this.state.employee, name: "", title: "", time: "", pto: "" }
 
-        this.setState({ user });
+        this.setState({ employee });
     }
 
 
 
     render() {
-        const { user } = this.state;
+        const { employee } = this.state;
 
        
            return (
@@ -61,14 +57,14 @@ class user extends Component {
                     type="text"
                     name="name"
                     id="name"
-                    value={user.name}
+                    value={employee.name}
                     onChange={this.handleChange} />
                 <label htmlFor="title">Title</label>
                 <input
                     type="text"
                     name="title"
                     id="title"
-                    value={user.title}
+                    value={employee.title}
                     onChange={this.handleChange} />
                 <label htmlFor="time">Capacity per day</label>
                 <input
@@ -76,7 +72,7 @@ class user extends Component {
                     name="time"
                     id="time"
                     placeholder="Time"
-                    value={user.time}
+                    value={employee.time}
                   
                     onChange={this.handleChange} />
                    
@@ -85,7 +81,7 @@ class user extends Component {
                     type="number"
                     name="pto"
                     id="pto"
-                    value={user.pto}
+                    value={employee.pto}
                     onChange={this.handleChange} />
                     
                 <button type="submit">
@@ -101,8 +97,8 @@ class user extends Component {
 
 function mapStateToProps(state) {
     return {
-        users: state.users
+        employees: state.employee
     }
 }
 
-export default connect(mapStateToProps)(user);
+export default connect(mapStateToProps)(employee);

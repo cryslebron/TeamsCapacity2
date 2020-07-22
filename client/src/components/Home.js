@@ -52,7 +52,7 @@ class Home extends Component {
                     <br/>
                     <div className="container">
                         <Table />
-                        <button onClick={this.toggleForm}> Add new Employee</button>
+                        <button onClick={this.toggleForm}> Add new Team Member</button>
                         {this.state.isOpen && <NewEmployee />}
 
                     </div>
@@ -64,7 +64,7 @@ class Home extends Component {
 
 function mapStateToProps(state) {
     return {
-        users: state.users
+        employees: state.employees
     }
 }
 

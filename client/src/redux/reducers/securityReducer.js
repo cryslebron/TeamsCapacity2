@@ -15,7 +15,7 @@ export default async function securityReducer(state = initialState, action) {
             return state;
         case "USER_LOGIN":
             const loggedIn = await login(action.user);
-            return { ...state, loggedIn: loggedIn, user: user  };    
+            return { ...state, loggedIn: loggedIn, user: action.user  };    
         case "USER_LOGOUT":
             return { ...state, loggedIn: false, user: null };
         default:

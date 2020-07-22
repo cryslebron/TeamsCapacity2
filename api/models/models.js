@@ -15,7 +15,7 @@ const Employee = sequelize.define('employee', {
   title: {
       type: Sequelize.STRING
   },
-  capacity: {
+  time: {
       type: Sequelize.INTEGER
   }
 })
@@ -28,7 +28,7 @@ const Team = sequelize.define('team', {
       allowNull: false,
       primaryKey: true
   },
-  name: {
+  teamName: {
       type: Sequelize.STRING,
       allowNull: false
   }

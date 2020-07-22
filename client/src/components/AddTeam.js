@@ -4,15 +4,13 @@ import * as teamActions from '../redux/actions/teamActions';
 
 
 class Team extends Component {
-
     constructor(props) {
         super(props);
 
         this.initialState = {
             team: {
-                TeamName: '',
-              
-
+                id: 1,
+                teamName: '',
             }
         };
 
@@ -27,7 +25,7 @@ class Team extends Component {
 
         this.setState({ team });
     }
-    //dispatch the Redux createUser action on submit
+  
     onFormSubmit = (event) => {
         alert('Team Added!');
         event.preventDefault();
@@ -36,7 +34,7 @@ class Team extends Component {
     }
     // //is to clear the form once submitted 
     resetForm = () => {
-        const team = { ...this.state.team, TeamName: "",}
+        const team = { ...this.state.team, teamName: "",}
 
         this.setState({ team });
     }
@@ -52,12 +50,12 @@ class Team extends Component {
 
             <div className="container">
                 <form onSubmit={this.onFormSubmit} >
-                    <label htmlFor="TeamName">Team Name</label>
+                    <label htmlFor="teamName">Team Name</label>
                     <input
                         type="text"
-                        name="TeamName"
-                        id="TeamName"
-                        value={team.TeamName}
+                        name="teamName"
+                        id="teamName"
+                        value={team.teamName}
                         onChange={this.handleChange} />
                    
                     <button type="submit">

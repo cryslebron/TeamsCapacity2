@@ -59,7 +59,7 @@ class LogIn extends Component {
               />
               <div className="text-center mt-4">
                 <MDBBtn color="indigo" type="submit">Login</MDBBtn>
-                {<MDBBtn color="indigo" type="submit" onClick={<SignUp />}>SignUp</MDBBtn>}
+               {/* <MDBBtn color="indigo" type="submit" onClick={<SignUp />}>SignUp</MDBBtn>} */}
               </div>
             </form>
           </MDBCol>

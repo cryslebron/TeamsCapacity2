@@ -21,7 +21,7 @@ const TeamBody = props => {
     const rows = props.characterData.map((row, index) => {
         return (
             <tr key={index}>
-                <td>{row.TeamName}</td>
+                <td>{row.teamName}</td>
                 <td><button onClick={() => deleteTeam(props.actions, row.teamName)}>Delete</button></td>
             </tr>
         );
@@ -34,7 +34,7 @@ const TeamTable = (props) => {
     const { teams } = props;
     return (
         <div>
-            <h2>Team</h2>
+            <h2>Teams</h2>
             <table>
                 <TeamHeader />
                 <TeamBody characterData={teams} actions={props.actions} />

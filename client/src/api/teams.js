@@ -10,7 +10,7 @@ export async function getOne(id) {
 
 export async function post(payload) {
     return await http.post(`team`, {
-        name: payload.name
+        teamName: payload.teamName
     })
 }
 
