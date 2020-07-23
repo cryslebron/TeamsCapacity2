@@ -6,12 +6,6 @@
       "database": "heroku_51cb28fbd471dd1",
       "host": "us-cdbr-east-02.cleardb.com",
       "dialect": "mysql"
-    },    
-    "mailer": {
-      "host": "",
-      "user": "",
-      "pass": "",
-      "from": ""
     }
   },
   "production": {
@@ -21,12 +15,6 @@
       "database": "heroku_51cb28fbd471dd1",
       "host": "us-cdbr-east-02.cleardb.com",
       "dialect": "mysql"
-    },    
-    "mailer": {
-      "host": "",
-      "user": "",
-      "pass": "",
-      "from": ""
     }
   }
 }
