@@ -21,6 +21,7 @@ const Teams = (props) => {
         };
         const fetchEmployeeData = async () => {
             const result = await getAllEmployees();
+        
             setEmployeeData({
                 employees: [{ id: 0, name: '(Select Team member)' }].concat(result.data)
             });
