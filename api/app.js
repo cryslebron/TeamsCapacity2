@@ -4,8 +4,8 @@ const cors = require('cors')
 const routes = require('./routes/index')
 const sequelize = require('./util/database')
 
-const app = express()
-const port = process.env.PORT || 3000
+const app = express();
+const port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
