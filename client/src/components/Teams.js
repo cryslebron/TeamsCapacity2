@@ -21,7 +21,7 @@ const Teams = (props) => {
         };
         const fetchEmployeeData = async () => {
             const result = await getAllEmployees();
-        
+
             setEmployeeData({
                 employees: [{ id: 0, name: '(Select Team member)' }].concat(result.data)
             });
@@ -58,51 +58,47 @@ const Teams = (props) => {
             <br />
             <div className="container">
                 <h2>Sprints</h2>
-                {sprintData.sprints.filter(sprint => sprint.teamId == selectedTeam).map(sprints => (
-                    <div key={sprints.sprintName}>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Sprint Name</th>
-                                    <th>Start Date</th>
-                                    <th>End Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{sprints.sprintName}</td>
-                                    <td> {sprints.startDate}</td>
-                                    <td> {sprints.endDate}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                ))}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sprint Name</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {sprintData.sprints.filter(sprint => sprint.teamId == selectedTeam).map(sprints => (
+                            <tr key={sprints.sprintName}>
+                                <td>{sprints.sprintName}</td>
+                                <td> {new Date(sprints.startDate).toLocaleDateString()}</td>
+                                <td> {new Date(sprints.endDate).toLocaleDateString()}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
             <br />
 
             <div className="container">
                 <h2>Team Members</h2>
-                {employeeData.employees.filter(employee => employee.teamId == selectedTeam).map(employees => (
-                    <div key={employees.name}>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Title</th>
-                                    <th>Capacity per day</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{employees.name}</td>
-                                    <td> {employees.title}</td>
-                                    <td> {employees.time}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                ))}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Title</th>
+                            <th>Capacity per day</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {employeeData.employees.filter(employee => employee.teamId == selectedTeam).map(employees => (
+                            <tr key={employees.name}>
+                                <td>{employees.name}</td>
+                                <td> {employees.title}</td>
+                                <td> {employees.time}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
 
         </div>

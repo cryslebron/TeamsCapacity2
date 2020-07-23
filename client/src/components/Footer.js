@@ -8,7 +8,7 @@ const FooterPage = () => {
         </MDBContainer>
       <div className="footer-copyright text-center py-3">
         <MDBContainer fluid>
-          &copy; {new Date().getFullYear()} Copyright: Crystal Lebron <a href="https://www.TeamsCapacity.com" target="_blank" rel="noopener noreferrer">TeamsCapacity.com </a>
+          &copy; {new Date().getFullYear()} Copyright: Crystal Lebron - Capacity Planner <a href="https://www.TeamsCapacity.com" target="_blank" rel="noopener noreferrer">TeamsCapacity.com </a>
         </MDBContainer>
       </div>
     </MDBFooter>
