@@ -9,7 +9,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "echo \"Error: no start specified\" && exit 1",
+    "start2": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
