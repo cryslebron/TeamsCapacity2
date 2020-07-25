@@ -1,10 +1,10 @@
 {
   "development": {
     "db": {
-      "username": "b0d88164cfe9c0",
-      "password": "bb9cfa08",
-      "database": "heroku_51cb28fbd471dd1",
-      "host": "us-cdbr-east-02.cleardb.com",
+      "username": "root",
+      "password": "Password1.",
+      "database": "capacityplanner",
+      "host": "127.0.0.1",
       "dialect": "mysql"
     }
   },
