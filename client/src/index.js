@@ -8,9 +8,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 import { BrowserRouter as Router } from "react-router-dom";
 // import Sequelize from 'sequelize';
 
-const store = configureStore();
-
-
+const store = configureStore()
 
 // const sequelize = new Sequelize('database_name', 'user_name', 'password', {
 //     host: 'host',

@@ -39,13 +39,11 @@ const Teams = (props) => {
     }, []);
 
     // props.dispatch(teamActions.getTeams());
-    const baseUrl = process.env.REACT_APP_API_URL + '/api' || 'http://localhost:3000/api';
     return (
         <div>
             <div className="container">
 
                 <label htmlFor="teamId">Team</label>
-                <h2>BaseURL: {baseUrl}</h2>
                 <select
                     name="teamId"
                     id="teamId"
